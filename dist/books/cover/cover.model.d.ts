@@ -1,0 +1,52 @@
+/// <reference types="mongoose/types/aggregate" />
+/// <reference types="mongoose/types/callback" />
+/// <reference types="mongoose/types/collection" />
+/// <reference types="mongoose/types/connection" />
+/// <reference types="mongoose/types/cursor" />
+/// <reference types="mongoose/types/document" />
+/// <reference types="mongoose/types/error" />
+/// <reference types="mongoose/types/expressions" />
+/// <reference types="mongoose/types/helpers" />
+/// <reference types="mongoose/types/middlewares" />
+/// <reference types="mongoose/types/indexes" />
+/// <reference types="mongoose/types/models" />
+/// <reference types="mongoose/types/mongooseoptions" />
+/// <reference types="mongoose/types/pipelinestage" />
+/// <reference types="mongoose/types/populate" />
+/// <reference types="mongoose/types/query" />
+/// <reference types="mongoose/types/schemaoptions" />
+/// <reference types="mongoose/types/schematypes" />
+/// <reference types="mongoose/types/session" />
+/// <reference types="mongoose/types/types" />
+/// <reference types="mongoose/types/utility" />
+/// <reference types="mongoose/types/validation" />
+/// <reference types="mongoose/types/virtuals" />
+/// <reference types="mongoose/types/inferschematype" />
+import { ObjectId, Schema, Document } from "mongoose";
+export declare const CoverSchema: Schema<any, import("mongoose").Model<any, any, any, any, any>, {}, {}, {}, {}, "type", {
+    description?: string;
+    title?: string;
+    author_id?: import("mongoose").Types.ObjectId;
+    category?: string;
+    author_name?: string;
+    cover_url?: string;
+    price?: number;
+    publication_date?: Date;
+    book_id?: import("mongoose").Types.ObjectId;
+    owner_id?: import("mongoose").Types.ObjectId;
+    reader_comments_id?: import("mongoose").Types.ObjectId;
+}>;
+export interface Cover extends Document {
+    id: ObjectId;
+    title: string;
+    category: string;
+    description: string;
+    author_name: string;
+    cover_url: string;
+    author_id: ObjectId;
+    book_id: ObjectId;
+    price: number;
+    publication_date: Date;
+    owner_id: ObjectId;
+    reader_comments_id: ObjectId;
+}

@@ -1,0 +1,183 @@
+innen lekérhető:
+    - borítók
+    - oldalak
+    - könyvek
+    - felhasználók
+    - fizetési adatok
+
+
+bejelentkezés oldal
+    signup- regisztráció
+    login- bejelentkezés
+főoldal
+    logout- kijelentkezés
+    cover/all- összes borító
+    cover/trending- felkapott borítók (hány)
+    cover/filter- borítók szűkítése, keresés (hány)
+    user/getme- user listája
+beállítások oldal
+    user/update- felhasználónév, nyelv átállítása
+    user/changepassword- jelszó átállítása
+    user/paymentmethod/add- fizetési mód hozzáadása
+    user/paymentmethod/remove- fizetési mód törlése
+    user/paymentmethod/update- fizetési mód megváltoztatása
+    user/account/add-számla hozzáadása
+    user/account/remove-számla törlése
+    user/account/update-számla megváltoztatása
+borító oldal -
+könyv olvasás
+    book/:bookid- maga a könyv
+    (könyv otthagyásakor:)
+    book/newdata- könyv és user statisztikák frissítése
+saját könyvek oldal
+    book/mybooks- saját könyvek
+    book/new- új könyv létrehozása
+    book/remove- könyv törlése
+    book/unpublish- könyv visszapublikálása
+    cover/update
+könyv szerkesztése oldal
+    book/edit/:bookid- adott könyv kommentekkel együtt
+    book/update/:bookid- mentésnél könyv és kommentek frissítése
+    book/publish/:bookid- könyv publikálása
+    cover/image/generate
+    cover/image/save
+saját könyvek trade oldal
+    cover/mybooks- saját könyvek csak árakkal
+trade főoldal
+     (mint sima főoldal csak árakkal)
+trade cover oldal
+    cover/:coverid/stats- statisztikák a könyvhöz
+
+event: havi fizetések intézése
+    - adott hónapban az olvasottság alapján
+    - és az elosztandó összeg alapján kiszámolja kinek mennyi jut
+    - és kifezeti őket
+    - frissíti az app szintű statisztikákat is
+
+
+
+
+olvasó nézet
+
+    főoldal
+    (könyvek listázása)
+
+            GET          /
+                getAllCover()
+
+    keresés/kategóriák nézet
+
+            GET        /search/:search
+                searchCover()
+                render()
+
+    könyv nézet
+
+            GET         /book/:coverid
+                getCoverById(id: String)
+                render()
+
+    olvasás nézet
+
+            GET         /reed/:bookid
+                getBookById(id: String)
+                render()
+
+
+
+szerkesztő nézet (listában a linkek)
+
+    könyvek listázása nézet
+
+            GET         /creator/
+                getAllCover()
+                render()
+
+    könyv borító létrehozó, szerkesztő oldal
+
+            GET, POST         /creator/cover/(:coverid)
+                getCoverById()
+                saveCover()
+                render()
+            DELETE      /creator/cover/:coverid
+                deleteCoverById()
+
+    könyv létrehozó, szerkesztő oldal
+
+           GET         /creator/book/(:bookid)
+                getBookById()
+                render()
+           POST        /creator/:bookid/save
+                saveBook()
+
+ !! lehet ketté kéne bontani az új létrehozását és az updatet
+
+
+trade nézet (blockchain alapú, tehát csak metamask-al lehet használni)
+
+    saját könyvek
+        - eladás
+    vásárlás
+
+
+
+render()
+
+getBookById()
+saveBook()
+
+getCoverById()
+searchCover()
+getAllCover()
+saveCover()
+deleteCoverById()
+
+
+
+
+.....
+
+validation
+    -param: id
+    -body: title, category, ..., book
+auth
+    - auth, user
+    - passport
+    - session
+    - ROLES! (user, creator, admin)
+    - csrf!
+cache
+    - összes cover (később csak egy részük)
+    - megnyitott maximum 3 könyv
+    - redis nem kell ehhez
+    - hiba megoldódott js-es importot kell használni
+        + downgradeltem @4-esre a cache-managert és működik
+
+
+x- google drive fájlmentés - a felület csak az adott féjl szerkeszti!!!
+x- bejelentkezés (google, silent...)
+- files: amazon s3
+- search: elastic
+x- email confirmation?
+
+
+fizetés
+    -strapi
+
+
+.....
+
+ai
+    - cover
+    - user photo
+frontend
+    - cookie: haladás lementése
+
+
+-mindent visszaad, amit kérsz
+-nem ad többet vissza, mint amit kérsz
+-csak akkor adja vissza, amit kérsz ha megérdemled
+-ha megérdemled visszaadja, amit kérsz
+
+
+

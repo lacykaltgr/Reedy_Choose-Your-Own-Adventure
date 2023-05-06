@@ -1,0 +1,1 @@
+{"version":3,"file":"book.model.js","sourceRoot":"","sources":["../../src/book/book.model.ts"],"names":[],"mappings":";;;AAAA,uCAA0C;AAK7B,QAAA,IAAI,GAAG,IAAI,iBAAM,CAAC;IAC3B,KAAK,EAAE,CAAC;YACJ,WAAW,EAAE,MAAM;YACnB,IAAI,EAAE,MAAM;YACZ,OAAO,EAAE,CAAC;oBACN,MAAM,EAAE,MAAM;oBACd,OAAO,EAAE,MAAM;iBAClB,CAAC;SACL,CAAC;CACL,CAAC,CAAC"}
